@@ -93,7 +93,10 @@
 //print_r($_GET);
 //echo $_GET["userName"];//получить из урла данные
 //echo "Hello ".$_GET["userName"]."!";
-$value = $_GET["number"];
+
+if(isset($_GET['number'])) {//если существует ключ number
+  $value = $_GET["number"];
+}
 
 if(is_numeric($value) && floor($value) == $value){
   if($value%2){
