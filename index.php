@@ -94,25 +94,49 @@
 //echo $_GET["userName"];//получить из урла данные
 //echo "Hello ".$_GET["userName"]."!";
 
-if(isset($_GET['number'])) {//если существует ключ number
-  $value = $_GET["number"];
-}
+// if(isset($_GET['number'])) {//если существует ключ number
+//   $value = $_GET["number"];
+// }
 
-if(is_numeric($value) && floor($value) == $value){
-  if($value%2){
-    echo $value.' Четное число';
-  }else {
-    echo $value.' Нечетное число';
+// if(is_numeric($value) && floor($value) == $value){
+//   if($value%2){
+//     echo $value.' Четное число';
+//   }else {
+//     echo $value.' Нечетное число';
+//   }
+// } else {
+//   echo 'Input the number';
+// }
+//print_r($_POST);//распечатать, что находится в массиве
+$loginPasswordArray = array(
+  "Jane" => "1111",
+  "Simona" => "8909"
+);
+$loginPasswordCorrect = false;
+if(isset($_POST["login"]) && isset($_POST["password"])){
+  foreach ($loginPasswordArray as $key => $value) {
+    if($key == $_POST["login"] && $value == $_POST["password"]) {
+      $loginPasswordCorrect = true;
+          
+    } 
   }
-} else {
-  echo 'Input the number';
-}
+
+    if($loginPasswordCorrect == true) {
+      echo "cool";
+    } else {
+      echo "password or login is not true";
+    }
+  }
+
 
 
 ?>
 <p>Input your number</p>
-<form>
+ <form method="post"> <!--Get по умолчанию -->
 
-<input type="text" name="number">
-<input type="submit" name="">
+<p><input type="text" name="login"></p>
+<p><input type="password" name="password"></p>
+<p><input type="submit" name=""></p>
 </form>
+
+
