@@ -128,6 +128,7 @@ if(isset($_POST["login"]) && isset($_POST["password"])){
     }
   }
 
+  include("new-fale.php");
 
 
 ?>
